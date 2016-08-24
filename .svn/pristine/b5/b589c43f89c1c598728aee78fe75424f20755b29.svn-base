@@ -1,0 +1,2 @@
+$("#user-<%= @user.id %>").remove();
+$('#solicitudes_rechazadas').html("<%= j render 'dashboard/administrator/rejected_requests' %>");

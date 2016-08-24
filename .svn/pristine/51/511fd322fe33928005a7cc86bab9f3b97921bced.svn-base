@@ -1,0 +1,2 @@
+$("#ConsolidadoHoras").html("<%= j render 'dashboard/administrator/monitors_form' %>");
+$("#modalprueba2").modal('show');

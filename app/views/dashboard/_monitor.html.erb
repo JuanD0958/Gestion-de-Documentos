@@ -1,0 +1,29 @@
+  <script>
+      $(function(){
+        $('#myTabs a[href="#profile"]').tab('show'); // Select tab by name
+        $('#myTabs a:first').tab('show'); // Select first tab
+        $('#myTabs a:last').tab('show'); // Select last tab
+        $('#myTabs li:eq(2) a').tab('show'); // Select third tab (0-indexed)
+      });
+  </script>
+
+<!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#Monitorias" aria-controls="FormularioEstudiantes" role="tab" data-toggle="tab">Monitorias</a></li>
+   
+    <li role="presentation"><a href="#RegistroHoras" aria-controls="RegistroHoras" role="tab" data-toggle="tab">Registro de Horas</a></li>    
+  </ul>
+
+<div class="tab-content" id="vista-monitor">
+
+	<%= render "dashboard/monitor/monitorings" %>
+
+	<div role="tabpanel" class="tab-pane panel" id="RegistroHoras">		
+		<div class="panel-default">					
+			<div class="panel-body">					
+				<%= render "dashboard/monitor/registro_horas" %>
+			</div>							
+		</div>		
+	</div>
+
+</div>

@@ -1,0 +1,24 @@
+<footer id="PieDePagina">
+
+    <section id="Superior">
+        <div class="container">            
+            <div class="col-sm-12">
+                <div class="footerbla text-center">
+                    <h4>Ingenieria de Sistemas y Computacion - UTP</h4> 
+                    <address class="text-center">
+                        <h5>Juan David Herrera Martinez - Sebastian Zapata Colorado</h5>
+                    </address>                           
+                </div>
+            </div>            
+        </div>
+    </section>
+
+    <section id="Inferior">
+        <div class="container">
+            <div class="col-md-12">
+                <p>© 2016 <a href="#" target="blank">SGMUTP</a> / All rights reserved.</p> 
+            </div>            
+        </div>
+    </section>
+
+</footer>

@@ -1,0 +1,6 @@
+<p>HOLA</p>
+<%= image_tag @img %>
+<% @workday.each do |f|%>
+	<%= f.id%>
+	<%= image_tag f.end_signature%>
+<%end%>

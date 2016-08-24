@@ -1,0 +1,16 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+#
+# Examples:
+#
+#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create(name: 'Emanuel', city: cities.first)
+admin = Role.where(name: "Administrador").first_or_create
+monitor = Role.where(name: "Monitor").first_or_create
+
+
+User.create(email: "sezapata@utp.edu.co", password: "@Sezapata2016", password_confirmation: "@Sezapata2016", full_name: "Sebastian Zapata Colorado", role: admin) unless User.find_by(email: "sezapata@utp.edu.co")
+User.create(email: "juand.herrera@utp.edu.co", password: "@Juand2016", password_confirmation: "@Juand2016", full_name: "Juan David Herrera Martinez", role: admin) unless User.find_by(email: "juand.herrera@utp.edu.co")
+
+User.create(email: "sezaco@hotmail.com", password: "@Sezaco2016", password_confirmation: "@Sezaco2016", full_name: "Sebastian Zapata Colorado", role: monitor) unless User.find_by(email: "sezaco@hotmail.com")
+User.create(email: "juand.herrera@hotmail.com", password: "@Juand2016", password_confirmation: "@Juand2016", full_name: "Juan David Herrera Martinez", role: monitor) unless User.find_by(email: "juand.herrera@hotmail.com")

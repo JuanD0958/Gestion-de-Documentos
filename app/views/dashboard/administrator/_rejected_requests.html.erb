@@ -1,0 +1,34 @@
+<div class="panel-body">
+   
+  <table class="table table-striped centrado ">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Fecha Solicitud</th>
+        <th>Correo Electrónico</th>
+        <th>Teléfono</th>
+        <th>Dirección</th>
+        <th></th>        
+      </tr>
+    </thead>
+    <tbody class="solitudes">
+      <% @rejected.each do |reject| %>
+        <tr id="user-<%= reject.id %>">
+          <td class="vert-align"><%= reject.id %></td>
+          <td class="vert-align"><%= reject.id_number %></td>
+          <td class="vert-align"><%= reject.full_name %></td>
+          <td class="vert-align"><%= reject.created_at.strftime("%m/%d/%Y") %></td>
+          <td class="vert-align"><%= reject.email %></td>
+          <td class="vert-align"><%= reject.telephone %></td>
+          <td class="vert-align"><%= reject.address %></td>
+          <td class="vert-align">
+            <%= link_to "Reestablecer", disapprove_user_path(id: reject.id), method: :patch, remote: true, class: "btn btn-primary btn-sm", data: { confirm: "¿Estas seguro que quieres llevar este estudiante a la lista de SOLICITUDES?" } %>
+          </td>      
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+</div>

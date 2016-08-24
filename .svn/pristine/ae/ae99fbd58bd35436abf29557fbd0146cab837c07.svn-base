@@ -1,0 +1,39 @@
+
+  <div class="panel-body">          
+    
+    <table class="table table-striped centrado ">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Código</th>
+          <th>Nombre</th>
+          <th>Fecha Solicitud</th>
+          <th>Correo Electrónico</th>
+          <th>Teléfono</th>
+          <th>Dirección</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="solitudes">
+        <% @solitudes.each do |solitude| %>
+          <tr id="user-<%= solitude.id %>">          
+            <td class="vert-align"><%= solitude.id %></td>
+            <td class="vert-align"><%= solitude.id_number %></td>
+            <td class="vert-align"><%= solitude.full_name %></td>
+            <td class="vert-align"><%= solitude.created_at.strftime("%m/%d/%Y") %></td>
+            <td class="vert-align"><%= solitude.email %></td>
+            <td class="vert-align"><%= solitude.telephone %></td>
+            <td class="vert-align"><%= solitude.address %></td>
+            <td class="vert-align">
+              <%= link_to "Aprobar", approve_user_path(id: solitude.id), method: :patch, remote: true, class: "btn btn-primary btn-sm" %>
+            </td>
+            <td class="vert-align">
+              <%= link_to 'Rechazar', delete_solitude_path(id: solitude.id), method: :patch, remote: true, class: "btn btn-danger btn-sm", data: { confirm: "¿Estas Seguro?" } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+  </div>

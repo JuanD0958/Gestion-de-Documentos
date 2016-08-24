@@ -1,0 +1,2 @@
+$("#user-<%= @user.id %>").remove();
+$('#solicitudes').html("<%= j render 'dashboard/administrator/requests' %>");

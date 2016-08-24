@@ -1,0 +1,2 @@
+$("#user-<%= @user.id %>").remove();
+$('#ListaMonitores').html("<%= j render 'dashboard/administrator/monitorings_list' %>")

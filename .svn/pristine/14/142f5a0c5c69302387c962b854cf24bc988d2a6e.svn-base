@@ -1,0 +1,40 @@
+<div class="panel-body">
+  
+  <table class="table table-striped centrado">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Correo Electrónico</th>
+        <th>Teléfono</th>
+        <th>Monitorias</th>
+        <th></th>        
+      </tr>
+    </thead>
+    <tbody class="monitores-inactivos">
+      <% @dissaprove_monitors.each do |monitor| %>
+        <tr id="user-<%= monitor.id %>">
+          <td class="vert-align"><%= monitor.id_number %></td>
+          <td class="vert-align"><%= monitor.full_name %></td>
+          <td class="vert-align"><%= monitor.email %></td>
+          <td class="vert-align"><%= monitor.telephone %></td>
+          <td class="vert-align">
+            <table class="justificado">            
+                <% monitor.monitorings.each do |monitoring| %>
+                  <tr>
+                    <td>
+                      <strong><%= monitoring.assignature %></strong>
+                    </td>                                        
+                  </tr>                  
+                <% end %>            
+            </table>
+          </td>                  
+          <td class="vert-align">
+            <%= link_to "Habilitar", approve_user_path(id: monitor.id), method: :patch, remote: true, class: "btn btn-success btn-sm", data: { confirm: "¿Estás seguro?" } %>
+          </td>          
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

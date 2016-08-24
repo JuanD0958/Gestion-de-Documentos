@@ -1,0 +1,25 @@
+<% if current_user.role.name == "Monitor"%>
+	<div class="container-fluid">
+		<div class="panel panel-default">
+
+			<div class="panel-heading">
+				<%= render "monitorings/schema/header"%>
+			</div>
+
+			<div class="panel-body" id="form_workday">
+				<%= render 'work_days/form' if WorkDay.current(current_user, @monitoring) %>
+			</div>
+
+			<div class="panel-footer">
+				<%= render "monitorings/schema/footer"%>
+			</div><!--footer-->
+			
+		</div>
+	</div>
+<%end%>
+
+
+<script type="text/javascript">
+	var studentsHash = <%= raw students_json %>;
+	barCodeReader();
+</script>

@@ -1,0 +1,52 @@
+<div class="container-fluid">
+
+  <script>
+      $(function(){
+        $('#myTabs a[href="#profile"]').tab('show'); // Select tab by name
+        $('#myTabs a:first').tab('show'); // Select first tab
+        $('#myTabs a:last').tab('show'); // Select last tab
+        $('#myTabs li:eq(2) a').tab('show'); // Select third tab (0-indexed)
+      });
+  </script>
+
+<!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#solicitudes" aria-controls="solicitudes" role="tab" data-toggle="tab">Solicitudes</a></li>
+    <li role="presentation"><a href="#solicitudes_rechazadas" aria-controls="solicitudes_rechazadas" role="tab" data-toggle="tab">Solicitudes Rechazadas</a></li>
+    <li role="presentation"><a href="#ListaMonitores" aria-controls="ListaMonitores" role="tab" data-toggle="tab">Monitores</a></li>
+    <li role="presentation"><a href="#MonitoresInactivos" aria-controls="MonitoresInactivos" role="tab" data-toggle="tab">Monitores Inactivos</a></li>
+    <li role="presentation"><a href="#ConsolidadoHoras" aria-controls="ConsolidadoHoras" role="tab" data-toggle="tab">Consolidado Horas</a></li>
+    <li role="presentation"><a href="#ControlMonitores" aria-controls="ControlMonitores" role="tab" data-toggle="tab">Control</a></li>    
+  </ul>
+
+  <!-- Tab panes -->
+    <div class="tab-content">
+      
+      <div role="tabpanel" class="tab-pane active panel" id="solicitudes">
+        <%= render "dashboard/administrator/requests" %>
+      </div>    
+
+      <div role="tabpanel" class="tab-pane panel" id="solicitudes_rechazadas">
+        <%= render "dashboard/administrator/rejected_requests"%>       
+      </div>
+
+      <div role="tabpanel" class="tab-pane panel" id="ListaMonitores">
+        <%= render "dashboard/administrator/monitorings_list"%>       
+      </div> 
+
+      <div role="tabpanel" class="tab-pane panel" id="MonitoresInactivos">
+        <%= render "dashboard/administrator/dissaprove_monitors"%>
+      </div>      
+
+      <div role="tabpanel" class="tab-pane panel" id="ConsolidadoHoras">
+        <%= render "dashboard/administrator/monitors_form"%>             
+      </div>
+
+      <div role="tabpanel" class="tab-pane panel" id="ControlMonitores">
+        <%= render "dashboard/administrator/monitors_control"%>          
+      </div>      
+
+
+    </div><!--div class="tab-content"-->  
+
+</div><!--class="container-fluid" principal-->

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  hours: 1
+  assignature: MyString
+  schelude: MyText
+  start_date: 2016-03-10 00:55:02
+  end_date: 2016-03-10 00:55:02
+  status: MyString
+
+two:
+  user_id: 1
+  hours: 1
+  assignature: MyString
+  schelude: MyText
+  start_date: 2016-03-10 00:55:02
+  end_date: 2016-03-10 00:55:02
+  status: MyString

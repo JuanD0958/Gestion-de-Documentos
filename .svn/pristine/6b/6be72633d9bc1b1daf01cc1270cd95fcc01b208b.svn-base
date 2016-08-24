@@ -1,0 +1,52 @@
+<div class="panel panel-default">	
+
+	<div class="panel-heading">
+
+		<div class="row">
+			<div class="col-xs-4 col-xs-offset-0 col-sm-4 col-sm-offset-0 col-md-3 col-md-offset-0">
+				<a class="Logo" href="http://www.utp.edu.co/" onclick="this.target='_blank'">
+			  	<%= image_tag "Escudo_Color_Horizontal_Transparente.png", class: "img-responsive" %>
+			  
+			 	</a>
+			</div>
+
+			<div class="col-xs-4 col-xs-offset-0 col-sm-4 col-sm-offset-0 col-md-4 col-md-offset-1">	
+				<h3 align="center">VICERECTORIA ACADEMICA</h3>
+				<h3 align="center" class="panel-title">CONTROL DE ASISTENCIA</h3>
+			</div>
+		</div>
+
+	</div>
+		
+	<div class="panel-body">
+
+		<div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0">	
+			<table class="table table-bordered table-striped dashboard centrado">						
+				<thead>
+					<tr>							
+						<th>ID</th>
+						<th>Código</th> 
+						<th>Estudiante</th>
+						<th>Firma</th>
+						<th>Firma Original</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @assistances.each do |assistence| %>				
+						<tr>
+							<td class="vert-align"><%= assistence.id%></td>
+							<td class="vert-align"><%= assistence.student.code %></td>
+							<td class="vert-align"><%= assistence.student.full_name %></td>
+							<td class="vert-align"><%= image_tag assistence.signature %></td>
+							<td class="vert-align"><%= image_tag assistence.student.signature %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>	
+		</div>
+	</div>
+
+	<div class="panel-footer">
+	</div>
+
+</div>

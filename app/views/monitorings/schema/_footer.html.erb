@@ -1,0 +1,46 @@
+<div class="row">
+<% if (@monitoring.end_date >= DateTime.now) and (@monitoring.start_date <= DateTime.now)%>
+	<div class="col-xs-3 col-xs-offset-0 col-sm-3 col-sm-offset-2 col-md-3 col-md-offset-5" >
+		
+		<% if  WorkDay.current(current_user, @monitoring) %>				
+			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+				Cerrar Monitoria
+			</button>
+		<%else%>
+			<%= link_to "Iniciar Monitoría", new_work_day_path(monitoring: @monitoring.id), class: "btn btn-success", data: {confirm: "¿Está seguro de que desea iniciar esta monitoría?"}, remote: true, id: "new-monitoring" %>
+		<% end %>
+
+	</div>
+<%end%>
+</div><!--row-->
+
+<% if WorkDay.current(current_user, @monitoring) %>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Cerrar Monitoria</h4>
+				</div>
+
+				<div class="modal-body">
+					<%= form_for WorkDay.current(current_user, @monitoring) do |f| %>
+						<table class="table table-striped">
+							<tr>
+								<th id="full_name_field">Firma Final</th>
+								<td><%= f.file_field :end_signature, :required => true %></td>
+								
+							</tr>
+						</table>
+				</div>
+
+				<div class="modal-footer">
+					<%= f.submit 'Guardar',  class: "btn btn-primary", remote: true %>
+					<% end %>
+					<button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>       
+				</div>
+			</div>
+		</div>
+	</div>
+<%end%>

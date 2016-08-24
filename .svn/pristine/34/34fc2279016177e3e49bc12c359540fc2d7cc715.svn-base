@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  start_date: 2016-03-10 01:02:26
+  end_date: 2016-03-10 01:02:26
+  start_signature: MyString
+  end_signature: MyString
+  teacher_signature: MyString
+  approval_id: 1
+
+two:
+  user_id: 1
+  start_date: 2016-03-10 01:02:26
+  end_date: 2016-03-10 01:02:26
+  start_signature: MyString
+  end_signature: MyString
+  teacher_signature: MyString
+  approval_id: 1

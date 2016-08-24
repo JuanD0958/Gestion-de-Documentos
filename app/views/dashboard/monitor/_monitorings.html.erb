@@ -1,0 +1,49 @@
+<div role="tabpanel" class="tab-pane active panel" id="Monitorias">
+	<div class="panel-body">
+		<table class="table table-striped table-bordered centrado">
+			<thead>
+				<tr>
+					<th>Asignatura</th>
+					<th>Estado</th>
+					<th>Historial Trabajado</th>					
+					<th>Fecha de Inicio</th>
+					<th>Fecha de Finalización</th>					
+				</tr>
+			</thead>
+			<tbody>
+				<% @monitorings.each do |monitoring| %>
+					<tr>
+						<%if monitoring.hours.present? %>
+							<% horas_totales   = ( (monitoring.hours) /3600) % 60%>
+							<% minutos_totales = (monitoring.hours/60) % 60%>
+							<% segundos_totales= (monitoring.hours) % 60%>
+
+							<td><%= link_to monitoring.assignature, monitoring %></td>
+							<td><%= monitoring.status %></td>
+							<td><%=  "#{horas_totales}:#{minutos_totales}:#{segundos_totales}" %></td>							
+							<td><%= monitoring.start_date.strftime('%d/%b/%Y') %></td>
+							<td><%= monitoring.end_date.strftime('%d/%b/%Y') %></td>							
+						<%else%>
+							<%  if (monitoring.end_date.present? and monitoring.start_date.present?) %>
+							
+							<% if (monitoring.end_date >= DateTime.now) and (monitoring.start_date <= DateTime.now)%>
+								<td><%= link_to monitoring.assignature, monitoring %></td>
+								<td><%= "Activa" %></td>
+							<% else%>
+								<td><%=  monitoring.assignature %></td>
+								<td><%= monitoring.status %></td>
+							<%end%>
+							<td><%= monitoring.hours %></td>							
+							<td><%= monitoring.start_date.strftime('%d/%b/%Y') %></td>
+							<td><%= monitoring.end_date.strftime('%d/%b/%Y') %></td>
+							<%end%>
+						<%end%>
+					
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+	
+						

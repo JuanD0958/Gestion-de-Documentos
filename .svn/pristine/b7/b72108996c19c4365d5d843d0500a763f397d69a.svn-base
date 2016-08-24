@@ -1,0 +1,58 @@
+// Place all the styles related to the Dashboard controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+html,body{
+	
+	width: 100%;
+	height: 100%;
+	
+	padding: 0;
+	margin: 0;
+}
+
+body{
+
+	>article{
+		position: relative;
+		height: calc(100% - 210px);
+		overflow-y: auto;
+	}
+}
+
+#div-center{
+	margin:0 auto;
+	width:100px;
+}
+
+table.dashboard{
+	img{
+		width: 50px;
+	}	
+}
+
+.table tbody>tr>td.vert-align{
+    vertical-align: middle;
+}
+
+.table tbody>tr>th.th-vert-align{
+    vertical-align: middle;
+}
+
+table.centrado{
+	text-align: center;	
+}
+
+table.justificado{
+	text-align: justify;
+}
+
+.table th {
+   text-align: center;
+
+}
+
+.btn-xs.pequeno{
+	line-height: 1;
+}

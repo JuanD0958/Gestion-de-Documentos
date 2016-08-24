@@ -1,0 +1,42 @@
+<div class="panel-body">
+  <%= form_for(@monitoring) do |f| %>
+    <div class= "row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+          <%= f.hidden_field :user_id %>
+          
+          <% if @monitoring.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@monitoring.errors.count, "error") %> prohibited this monitoring from being saved:</h2>
+              <ul>
+              <% @monitoring.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class= "row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+           <%= f.label :assignature, "Nombre de Monitoria" %><br />
+            <%= f.text_field :assignature, autofocus: true, class: "form-control input-sm",:placeholder => "Asignatura", :required => true %>
+          <%= f.label :start_date, "Fecha de inicio" %><br />
+            <%= f.date_field :start_date,  class: "form-control input-sm",:placeholder => "fecha inicio", :required => true %>
+          <%= f.label :end_date, "Fecha de finalización" %><br />
+            <%= f.date_field :end_date,  class: "form-control input-sm",:placeholder => "fecha fin", :required => true %>
+        </div>
+      </div>
+    </div>
+
+    <div class= "row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="actions">
+          <%= f.submit "Crear", class: "btn btn-info btn-block" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
